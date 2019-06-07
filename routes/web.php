@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user/show/{user}', 'UserController@show')->name('user.show');
+
+
+Route::resource('publications', 'PublicationController')->except(['create']);
+Route::get('publications/create/{user}', 'PublicationController@create')->name('publications.create');

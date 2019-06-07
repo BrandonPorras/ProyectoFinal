@@ -2,8 +2,14 @@
 
 namespace INTEGRATEITM\Http\Controllers;
 
-use INTEGRATEITM\Publication;
 use Illuminate\Http\Request;
+
+use INTEGRATEITM\User;
+use INTEGRATEITM\Publication;
+
+use INTEGRATEITM\Http\Requests\StorePublicationRequest;
+use INTEGRATEITM\Http\Requests\UpdatePublicationRequest;
+
 
 class PublicationController extends Controller
 {
@@ -22,9 +28,9 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user)
     {
-        //
+        return view('publications.create', ['user'=> $user]);
     }
 
     /**
@@ -35,16 +41,36 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imagen_publication = 'image-not-found.png';
+        if ($request->hasFile('imagen_publication')) {
+            $file = $request->imagen_publication;
+
+            $imagen_publication = time() . $file->getClientOriginalName();
+            $file->storeAs('public/imgPublications', $imagen_publication);
+        }
+        $publication = new Publication();
+
+        $publication->titulo  = $request->titulo;
+        $publication->text = $request->text;        
+        $publication->categoria = $request->categoria;        
+        $publication->img = $imagen_publication;
+
+        $user = User::where('id', $request->user)->first();
+        $publication->user()->associate($user);     
+
+        $publication->save();
+
+        return redirect()->route('home')->with('success', "Publication added");  
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \INTEGRATEITM\Publication  $publication
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Publication $publication)
+    public function show($id)
     {
         //
     }
@@ -52,10 +78,10 @@ class PublicationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \INTEGRATEITM\Publication  $publication
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publication $publication)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +90,10 @@ class PublicationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \INTEGRATEITM\Publication  $publication
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Publication $publication)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +101,10 @@ class PublicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \INTEGRATEITM\Publication  $publication
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Publication $publication)
+    public function destroy($id)
     {
         //
     }
