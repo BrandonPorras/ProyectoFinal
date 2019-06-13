@@ -20,7 +20,9 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        //
+        $publications = Publication::all();
+        return view('publications.publications', ['publications' => $publications]); 
+       
     }
 
     /**
@@ -60,7 +62,8 @@ class PublicationController extends Controller
 
         $publication->save();
 
-        return redirect()->route('home')->with('success', "Publication added");  
+        $publications = Publication::all();
+        return view('publications.publications', ['publications' => $publications]);
 
     }
 
