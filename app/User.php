@@ -48,40 +48,34 @@ class User extends Authenticatable
             ->belongsToMany('INTEGRATEITM\Role','role_user','user_id','role_id')
             ->withTimestamps();
         }
-    //    para saber el role del usuario
-    public function hasRole($role){
-    //retorna true si es cierto o false si es null
-       return $this->roles()->where('name', $role)->first()!==null;
-    }
-    
-    public function hasAnyRoles($roles){
-        /****
-         * para saber si el user tiene mas de un rol
-         * 
-         * @param roles array de roles o solo un role
-         */
-         if(is_array($roles)){
-    
-            foreach($roles as $role){
-                if($this-hasRole($role)){
+        public function authorizeRoles($roles)
+        {
+            if ($this->hasAnyRole($roles)) {
+                return true;
+            }
+            abort(401, 'Esta acción no está autorizada.');
+        }
+        public function hasAnyRole($roles)
+        {
+            if (is_array($roles)) {
+                foreach ($roles as $role) {
+                    if ($this->hasRole($role)) {
+                        return true;
+                    }
+                }
+            } else {
+                if ($this->hasRole($roles)) {
                     return true;
                 }
             }
-    
-         }
-         else return $this->hasRole($roles);
-    }
-    
-     /****
-         * autorizar roles 
-         * 
-         * @param $roles los roles se van a permitir
-         */
-        public function authorizeRoles($roles){
-            if($this->hasAnyRoles($roles)){
+            return false;
+        }
+        public function hasRole($role)
+        {
+            if ($this->roles()->where('name', $role)->first()) {
                 return true;
             }
-            abort(401, 'No tiene permiso');
+            return false;
         }
     
     
