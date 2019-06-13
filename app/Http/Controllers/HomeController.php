@@ -4,6 +4,9 @@ namespace INTEGRATEITM\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use INTEGRATEITM\User;
+use INTEGRATEITM\Publication;
+
 class HomeController extends Controller
 {
     /**
@@ -25,4 +28,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    
+
 }
