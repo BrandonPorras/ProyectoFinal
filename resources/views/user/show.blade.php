@@ -24,7 +24,9 @@
                   <h5 class="card-title">{{$user->name }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">@lang('name'): {{ $user->name }}</h6>
                   <h6 class="card-subtitle mb-2 text-muted">@lang('email'): {{ $user->email }}</h6>
+                  
                   <a href="{{ route('publications.create', $user) }}"class="card-link">@lang('Create New Post') </a>
+                  
                   <div class="card-body">
                   <form action="{{ route('user.destroy', $user) }}" method="POST">
                     @csrf
