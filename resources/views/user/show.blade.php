@@ -14,11 +14,11 @@
             <p class="text-center text-black">@lang('email'): {{ $user->email }}</p><br>
             <a class="text-center text-black" href="{{ route('publications.create', Auth::user()) }}">@lang('Create New Post')  </a>
             
-            {{-- <form action="{{ route('users.destroy', $user->slug) }}" method="POST">
+            <form action="{{ route('user.destroy', $user) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Delete</button>
-            </form> --}}
+            </form> 
         </div>
     </div>
 </div>
