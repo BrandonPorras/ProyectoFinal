@@ -15,8 +15,6 @@
           
             <p class="text-center text-white">@lang('Name'): {{ publication->txt }}</p>
           
-           
-          
                 @csrf
                 @method('DELETE')
                

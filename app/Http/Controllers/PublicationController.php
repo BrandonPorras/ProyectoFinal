@@ -75,7 +75,7 @@ class PublicationController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
