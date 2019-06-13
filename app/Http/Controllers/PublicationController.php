@@ -83,7 +83,7 @@ class PublicationController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('publications.edit', ['publication' => $publication]);
     }
 
     /**
@@ -95,7 +95,38 @@ class PublicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'titulo' => 'required'
+           
+        ]);
+
+        // $publication = publication::findOrFail($id);
+
+        if ($request->hasFile('img')) {
+
+            // Eliminar imagen si  se va a actualizar
+            $filePath = storage_path('app/public/images/' . $publication->img);
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            // Subir nueva imagen
+            $file = $request->file('img');
+
+            $image_profile = time() . $file->getClientOriginalName();
+
+            $publication->img = $image_profile;
+
+            $file->storeAs('public/images', $image_profile);
+        }
+
+        $publication->title = $request->title;
+
+
+        $publication->save();
+
+        return redirect()->route('publications.show', $publication)->with('success', 'Actualizado');
     }
 
     /**
@@ -106,6 +137,15 @@ class PublicationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $filePath = storage_path('app/public/images/imgPublications' . $publication->img);
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+
+        // File::delete($filePath);
+
+        $publication->delete();
+        return redirect('/publications')->with('success', 'Eliminado');
     }
 }
