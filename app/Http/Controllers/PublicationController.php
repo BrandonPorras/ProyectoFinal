@@ -30,9 +30,9 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($user)
+    public function create($publication)
     {
-        return view('publications.create', ['user'=> $user]);
+        return view('publications.create', ['publication'=> $publication]);
     }
 
     /**
@@ -63,7 +63,7 @@ class PublicationController extends Controller
         $publication->save();
 
         $publications = Publication::all();
-        return view('publications.publications', ['publications' => $publications]);
+        return redirect()->route('publications.index');
 
     }
 
@@ -73,9 +73,9 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Publication $publication)
     {
-        //
+        return view('publications.show', ['publication'=> $publication]);
     }
 
     /**
