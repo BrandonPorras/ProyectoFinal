@@ -20,6 +20,7 @@ class UserController extends Controller
         $user->delete();
        return redirect('home');
     }
+    
     public function edit($id)
     {        $user=User::findOrFail($id);  
         return view('user.edit',['user' => $user]);
