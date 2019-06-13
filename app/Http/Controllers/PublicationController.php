@@ -30,9 +30,9 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($publication)
+    public function create($user)
     {
-        return view('publications.create', ['publication'=> $publication]);
+        return view('publications.create', ['user'=> $user]);
     }
 
     /**
