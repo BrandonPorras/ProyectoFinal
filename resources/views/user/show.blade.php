@@ -4,23 +4,38 @@
 
 @section('content')
 
-<article>
- <div class="container">
+  
 
-            <h1>{{$user->name }}</h1>
+@auth
+
+<a href="{{ route('publications.create', $user) }}"class="card-link">@lang('Create New Post') </a>
+@foreach (Auth::user()->roles as $role)
+{{ $role->name}}
+@endforeach -              
+@endauth
+
+<article>
+ <div class="container-fluid content-align-center">
+
             
             
-            <p class="text-center text-black">@lang('name'): {{ $user->name }}</p>
-            <p class="text-center text-black">@lang('email'): {{ $user->email }}</p><br>
-            <a class="text-center text-black" href="{{ route('publications.create', Auth::user()) }}">@lang('Create New Post')  </a>
-            
-            {{-- <form action="{{ route('users.destroy', $user->slug) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Delete</button>
-            </form> --}}
-        </div>
-    </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{$user->name }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">@lang('name'): {{ $user->name }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">@lang('email'): {{ $user->email }}</h6>
+                  <a href="{{ route('publications.create', $user) }}"class="card-link">@lang('Create New Post') </a>
+                  <div class="card-body">
+                  <form action="{{ route('user.destroy', $user) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form> 
+                <a class="btn" href="{{route('user.edit',$user->id,)}}">@lang('content.edit') </a>
+                
+            </div>
+                </div>
+              </div>
 </div>
 </article>
 
