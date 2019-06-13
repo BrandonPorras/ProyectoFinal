@@ -8,6 +8,7 @@ use INTEGRATEITM\User;
 use INTEGRATEITM\Publication;
 
 
+
 class UserController extends Controller
 {
     public function show(User $user)
@@ -18,8 +19,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-       return redirect('home');
+        return redirect()->route('publications.index');
     }
+    
     public function edit($id)
     {        $user=User::findOrFail($id);  
         return view('user.edit',['user' => $user]);
@@ -35,6 +37,6 @@ class UserController extends Controller
           $user->email=$request->email;   
           $user->password=bcrypt($request->password);
           $user->save();   
-          return redirect('home')->with('success','Actualizado');
+          return redirect()->route('publications.index');
     }
 }

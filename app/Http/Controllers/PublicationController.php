@@ -63,7 +63,7 @@ class PublicationController extends Controller
         $publication->save();
 
         $publications = Publication::all();
-        return view('publications.publications', ['publications' => $publications]);
+        return redirect()->route('publications.index');
 
     }
 
@@ -73,9 +73,13 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Publication $publication)
     {
+<<<<<<< HEAD
         
+=======
+        return view('publications.show', ['publication'=> $publication]);
+>>>>>>> master
     }
 
     /**
