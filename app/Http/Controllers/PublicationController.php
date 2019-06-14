@@ -78,17 +78,29 @@ class PublicationController extends Controller
         return view('publications.show', ['publication'=> $publication]);
     }
 
+
+    public function showAuthorize()
+    {
+        $publications[] = Publication::all();
+        $users []= User::all();
+
+        
+        return view('publications.showAuthorize', [ $publications, $users]);        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Publication $publication, User $user)
     {
-        //
+        return view('publications.edit', ['publication' => $publication,'user'=>$user]);
     }
 
+
+  
     /**
      * Update the specified resource in storage.
      *
@@ -98,7 +110,45 @@ class PublicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $this->validate($request, [
+        //     'titulo' => 'required',
+        //     'img' => 'image|nullable|max:1999',
+        //     'text' => 'required',
+        //     'categoria' => 'required',
+        //     'state' => '0'
+        // ]);
+
+        $publication = publication::findOrFail($id);
+
+        if ($request->hasFile('img')) {
+
+            // Eliminar imagen si  se va a actualizar
+            $filePath = storage_path('app/public/images/' . $publication->img);
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            // Subir nueva imagen
+            $file = $request->file('img');
+
+            $image_profile = time() . $file->getClientOriginalName();
+
+            $publication->img = $image_profile;
+
+            $file->storeAs('public/images', $image_profile);
+        }
+
+        $publication->titulo = $request->titulo;
+        $publication->text = $request->text;
+        $publication->state ="0";
+        
+      
+
+
+        $publication->save();
+
+        return redirect()->route('publications.show', $publication)->with('success', 'Actualizado');
     }
 
     /**
@@ -107,8 +157,18 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Publication $publication)
     {
-        //
+      
+        $filePath = storage_path('app/public/imgPublications' . $publication->img);
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+
+        // File::delete($filePath);
+
+        $publication->delete();
+        return redirect('/publications')->with('success', 'Eliminado');
     }
 }
