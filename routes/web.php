@@ -27,5 +27,5 @@ Route::put('/user/update/{id}','UserController@update')->name('user.update');
 Route::resource('publications', 'PublicationController')->except(['create']);
 Route::get('publications/create/{user}', 'PublicationController@create')->name('publications.create');
 
-Route::get('publications/showAuthorize', 'PublicationController@showAuthorize')->name('publications.showAuthorize');
+Route::get('showAuthorize', 'PublicationController@showAuthorize')->name('publications.showAuthorize');
 

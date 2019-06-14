@@ -78,13 +78,14 @@ class PublicationController extends Controller
         return view('publications.show', ['publication'=> $publication]);
     }
 
+
     public function showAuthorize()
     {
-        $publications = Publication::all();
-        $users = User::all();
+        $publications[] = Publication::all();
+        $users []= User::all();
+
         
-        return view('publications.showAuthorize', [ $publications, $users]);
-        
+        return view('publications.showAuthorize', [ $publications, $users]);        
     }
 
     /**
