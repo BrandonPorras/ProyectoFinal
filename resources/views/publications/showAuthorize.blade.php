@@ -27,10 +27,7 @@
             <td>{{ $user->name }}</td>
             <td><img  class="card-img-top" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
            {{--forelse publication--}}
-                
-    
-                    
-
+     
                     <td>
                         <p>{{ $publication->text }}</p>                 
                         <a href="#" class="btn btn-success">Authorize</a>
