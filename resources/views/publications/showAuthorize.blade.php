@@ -6,17 +6,18 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Autor</th>
-            <th>Email</th>
+            <th>Image</th>
+            <th>Name</th>
         </tr>
     </thead>
     <tbody>
+    @forelse($publications as $publication)
         <tr>
             <td>{{ $publication->titulo }}</td>
-            <td>Doe</td>
-            <td>[email protected]</td>
+            <td><img  class="card-img-top" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt=""></td>
+            <td>{{ $user->name }}</td>
         </tr>
-        
+    @endforelse
     </tbody>
 </table>
 

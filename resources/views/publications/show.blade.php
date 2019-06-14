@@ -12,14 +12,7 @@
             <h1>{{ $publication->titulo }}</h1>     
             <p class="text-center text-white">@lang('Name'): {{ $publication->txt }}</p>
           
-<<<<<<< HEAD
-                @csrf
-                @method('DELETE')
-               
-            </form>
-=======
             
->>>>>>> master
         </div>
     </div>
 </div>
