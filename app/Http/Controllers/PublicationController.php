@@ -84,11 +84,13 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Publication $publication, User $user)
     {
-        return view('publications.edit', ['publication' => $publication]);
+        return view('publications.edit', ['publication' => $publication,'user'=>$user]);
     }
 
+
+  
     /**
      * Update the specified resource in storage.
      *
@@ -98,12 +100,15 @@ class PublicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'titulo' => 'required'
-           
-        ]);
+        // $this->validate($request, [
+        //     'titulo' => 'required',
+        //     'img' => 'image|nullable|max:1999',
+        //     'text' => 'required',
+        //     'categoria' => 'required',
+        //     'state' => '0'
+        // ]);
 
-        // $publication = publication::findOrFail($id);
+        $publication = publication::findOrFail($id);
 
         if ($request->hasFile('img')) {
 
@@ -124,7 +129,11 @@ class PublicationController extends Controller
             $file->storeAs('public/images', $image_profile);
         }
 
-        $publication->title = $request->title;
+        $publication->titulo = $request->titulo;
+        $publication->text = $request->text;
+        $publication->state ="0";
+        
+      
 
 
         $publication->save();
@@ -138,9 +147,10 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Publication $publication)
     {
-        $filePath = storage_path('app/public/images/imgPublications' . $publication->img);
+      
+        $filePath = storage_path('app/public/imgPublications' . $publication->img);
 
         if (file_exists($filePath)) {
             unlink($filePath);
