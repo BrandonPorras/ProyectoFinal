@@ -57,7 +57,7 @@
               @endif
              @empty
                 <p>No hay nada</p>
-          ////////
+          
     @endforelse{{--endforelse publication--}}
     </tbody>
 </table> 
