@@ -3,6 +3,7 @@
 namespace INTEGRATEITM\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Builder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Builder::macro('whereLike', function($attributes, string $searchTerm) {
+            foreach(array_wrap($attributes) as $attribute) {
+               $this->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+            }
+            
+            return $this;
+         });
     }
 }

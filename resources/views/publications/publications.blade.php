@@ -21,6 +21,11 @@
 
  
     <div class="container">
+
+        <form class="form-inline mt-5" method="GET" action="{{ route('publications.index') }}">
+             <button name="search" value="Materials" class="btn btn-outline-success my-2 my-sm-0" type="submit">Materials</button>
+         </form>
+                                 
         
         <br>
         <br>

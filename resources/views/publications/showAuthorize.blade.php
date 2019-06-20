@@ -29,22 +29,26 @@
            {{--forelse publication--}}
 
                    <td class="">
-                        <p>{{ $publication->text }}</p>    
-                                     
+                        <p>{{ $publication->text }}</p> 
+                    </td>      
+
+                    <td>
                         <form method="POST" action="{{ route('publications.allow',$publication->id) }}">
                             @csrf
                             @method('PUT')
                             <button class="btn  btn-succes"type="submit">@lang('Athorize')</button>
                         </form>
-
+                    </td>
+                    
+                    <td>
                         <form method="POST" action="{{ route('publications.destroy', $publication) }}">
                             @csrf
                             @method('DELETE')
                             <button class="btn  btn-danger"type="submit">@lang('Deny')</button>
                         </form>
-
-                        
                     </td>
+                        
+                    
     
                 @endif
            

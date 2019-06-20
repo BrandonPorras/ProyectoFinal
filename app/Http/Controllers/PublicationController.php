@@ -9,6 +9,7 @@ use INTEGRATEITM\Publication;
 
 use INTEGRATEITM\Http\Requests\StorePublicationRequest;
 use INTEGRATEITM\Http\Requests\UpdatePublicationRequest;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class PublicationController extends Controller
@@ -18,9 +19,15 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $publications = Publication::all();
+        
+        if($request->get('search')!=""){
+          //  $publications = Publication::title($request->get('search'));
+            $publications =Publication::whereLike(['titulo', 'categoria'], $request->get('search'))->get();
+       }else{                        
+            $publications = Publication::all();}
+           
         return view('publications.publications', ['publications' => $publications]); 
        
     }
