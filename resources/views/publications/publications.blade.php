@@ -45,6 +45,11 @@
             <p>No aceptada</p>
            
         @endforelse
+{{--    metodo de la paginacion --}}
+        {!!$publications->appends(
+        Request::only(['search',])
+        )->render()!!}
+        
     </div>
     
 

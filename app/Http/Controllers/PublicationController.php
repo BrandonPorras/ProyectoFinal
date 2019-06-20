@@ -24,9 +24,10 @@ class PublicationController extends Controller
         
         if($request->get('search')!=""){
           //  $publications = Publication::title($request->get('search'));
-            $publications =Publication::whereLike(['titulo', 'categoria'], $request->get('search'))->get();
+            $publications =Publication::whereLike(['titulo', 'categoria'], $request->get('search'))->paginate(2);
+            
        }else{                        
-            $publications = Publication::all();}
+            $publications = Publication::paginate(2);}
            
         return view('publications.publications', ['publications' => $publications]); 
        
