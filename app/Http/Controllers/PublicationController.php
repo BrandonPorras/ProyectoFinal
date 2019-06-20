@@ -19,8 +19,7 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request)    {
         
         if($request->get('search')!=""){
           //  $publications = Publication::title($request->get('search'));
