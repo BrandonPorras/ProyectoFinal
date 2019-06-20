@@ -29,7 +29,8 @@
            {{--forelse publication--}}
 
                    <td class="">
-                        <p>{{ $publication->text }}</p>                 
+                        <p>{{ $publication->text }}</p>    
+                                     
                         <form method="POST" action="{{ route('publications.allow',$publication->id) }}">
                             @csrf
                             @method('PUT')
