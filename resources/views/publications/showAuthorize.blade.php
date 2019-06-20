@@ -27,14 +27,22 @@
             <td>{{ $user->name }}</td>
             <td><img  class="card-img-top" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
            {{--forelse publication--}}
-                
-    
-                    
 
-                    <td>
+                   <td class="">
                         <p>{{ $publication->text }}</p>                 
-                        <a href="#" class="btn btn-success">Authorize</a>
-                        <a href="#" class="btn btn-danger">Deny</a>
+                        <form method="POST" action="{{ route('publications.allow',$publication->id) }}">
+                            @csrf
+                            @method('PUT')
+                            <button class="btn  btn-succes"type="submit">@lang('Athorize')</button>
+                        </form>
+
+                        <form method="POST" action="{{ route('publications.destroy', $publication) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn  btn-danger"type="submit">@lang('Deny')</button>
+                        </form>
+
+                        
                     </td>
     
                 @endif

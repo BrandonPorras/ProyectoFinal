@@ -171,4 +171,19 @@ class PublicationController extends Controller
         $publication->delete();
         return redirect('/publications')->with('success', 'Eliminado');
     }
+
+
+    ///////////////////////////allow
+
+    public function allow($id )
+    {   
+        $publication = publication::findOrFail($id);
+        // $publication->img = $request->img; 
+        // $publication->titulo = $request->titulo;
+        // $publication->text = $request->text;
+        $publication->state ="1";    
+        $publication->save();
+
+        return redirect()->route('publications.show', $publication)->with('success', 'Actualizado');
+    }
 }
