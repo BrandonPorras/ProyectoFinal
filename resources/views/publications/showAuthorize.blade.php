@@ -23,36 +23,15 @@
         @if($publication->state!=1)
          @forelse($users as $user)
             @if($publication->user_id==$user->id)
-<<<<<<< HEAD
-        <tr>
-            <td>{{ $publication->titulo }}</td>
-            <td>{{ $user->name }}</td>
-            <td><img  class="card-img-top" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
-           {{--forelse publication--}}
-     
-                    <td>
-                        <p>{{ $publication->text }}</p>                 
-                        <a href="#" class="btn btn-success">Authorize</a>
-                        <a href="#" class="btn btn-danger">Deny</a>
-                    </td>
-    
-                @endif
-           
-            </tr>
-            @empty
-            <p>No hay nada</p>
-    @endforelse{{--endforelse user--}}
-=======
                    <tr>
                     <td>{{ $publication->titulo }}</td>
                     <td>{{ $user->name }}</td>
-                    <td><img  class="card-img-top" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
+                    <td><img  class="card-img" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
                 {{--forelse publication--}}
 
                         <td class="">
                                 <p>{{ $publication->text }}</p> 
                             </td>      
->>>>>>> master
 
                             <td>
                                 <form method="POST" action="{{ route('publications.allow',$publication->id) }}">
