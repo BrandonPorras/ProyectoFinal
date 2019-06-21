@@ -11,17 +11,17 @@ const stylesSCSS = async() => {
 	// 3. Donde se almacena de css
 
 	await gulp
-		.src('./src/scss/**/*.scss')
+		.src('./resources/scss/**/*.scss')
 		.pipe(
 			sass({
 				outputStyle: 'expanded'
 			}).on('error', sass.logError)
 		)
 		.pipe(autoprefixer('last 2 versions'))
-		.pipe(gulp.dest('./dist/css'));
+		.pipe(gulp.dest('./public/css'));
 };
 gulp.task('watch', () =>{
-    gulp.watch('./src/scss/**/*.scss',stylesSCSS);  
+    gulp.watch('./resources/scss/**/*.scss',stylesSCSS);  
 });
 
 gulp.task('stylesSCSS', stylesSCSS);

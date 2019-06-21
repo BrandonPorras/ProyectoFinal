@@ -21,7 +21,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href= rel="stylesheet">                           
+
+    
+                      
 </head>
 <body>
     <div id="app">
