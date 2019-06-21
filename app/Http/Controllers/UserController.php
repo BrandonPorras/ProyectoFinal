@@ -3,8 +3,12 @@
 namespace INTEGRATEITM\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 use INTEGRATEITM\User;
+use INTEGRATEITM\Role;
 use INTEGRATEITM\Publication;
 
 
@@ -38,5 +42,40 @@ class UserController extends Controller
           $user->password=bcrypt($request->password);
           $user->save();   
           return redirect()->route('publications.index');
+    }
+    public function manageUser(){
+        
+        $users=User::all();
+        $roles = Role::get();
+        return view('user.manageUser', compact('users','roles') );        
+    }
+
+    public function updateRole( $id,$roleId){ 
+     $user=User::findOrFail($id);    
+    $role= Role::findOrFail($roleId);
+    
+    if($role->id===1){
+        $user
+        ->roles()
+        ->detach(Role::where('name', 'user')->first());
+
+         $user
+        ->roles()
+        ->attach(Role::where('name', 'admin')->first());
+
+        $user->save();
+    }
+        else{
+            $user
+            ->roles()
+            ->detach(Role::where('name', 'admin')->first());
+    
+             $user
+            ->roles()
+            ->attach(Role::where('name', 'user')->first());
+    
+            $user->save();            
+        }
+        return redirect()->route('publications.index');
     }
 }

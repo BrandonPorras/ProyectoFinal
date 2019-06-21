@@ -20,6 +20,9 @@ Route::get('/user/show/{user}', 'UserController@show')->name('user.show');
 Route::delete('/user/delete/{user}','UserController@destroy')->name('user.destroy');
 Route::get('/user/edit/{user}','UserController@edit')->name('user.edit');
 Route::put('/user/update/{id}','UserController@update')->name('user.update');
+Route::get('/user/manageUser', 'UserController@manageUser')->name('user.manageUser');
+Route::put('/updateRole/{id}/{name}','UserController@updateRole')->name('user.updateRole');
+
 
 
 

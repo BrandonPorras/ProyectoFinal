@@ -13,6 +13,7 @@
     @if($role->name=='admin')
     
     <a href="{{ route('publications.showAuthorize') }}" class="btn btn-success">Authorize or deny publications</a>
+    <a href="{{ route('user.manageUser') }}" class="btn btn-success">Manage users</a>
     
     @endif
     @endforeach 
