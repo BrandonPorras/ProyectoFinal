@@ -1,7 +1,14 @@
+<?php        
+use INTEGRATEITM\User;      
+$users= User::all();
+use INTEGRATEITM\Role;      
+$roles= Role::all();
+?>
+
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="container d-flex ml-5 pl-5 ">
  <table class="table table-responsive table-hover ">
     <thead>
         <tr>
@@ -12,44 +19,30 @@
         </tr>
     </thead>
     <tbody>
-    <?php        
-        use INTEGRATEITM\User;      
-        $users= User::all();
-        use INTEGRATEITM\Role;      
-        $roles= Role::all();
-      ?>
-
 @auth
       @forelse($users as $user){{--forelse publication--}}
-            {{-- @if(user()->role->name!='admin') --}}
-                   
-                    
-                            <tr>
+                          <tr>
                                 <td>{{ $user->name }}</td>
                                 <td class="">
                                     <p>{{ $user->email }}</p> 
                                 </td>   
-                                <td class="">
-                                        <li>
+                                <td class="row py-2">
+                                       
                                             @foreach ($roles as $role)
                                             <form method="POST" action="{{route('user.updateRole',array($user->id, $role->id))}}">
                                                     @csrf
                                                     @method('PUT')                                                    
-                                                    <button value='' class="btn  btn-succes mt-1 mb-1"type="submit">{{ $role->name }}</button>
+                                                    <button value='' class="mx-2 btn  btn-outline-success mt-1 mb-1"type="submit">{{ $role->name }}</button>
                                                 </form>
                                           
                                              @endforeach
-                                        </li>
+                                        
                                 </td>   
-                                
                             </tr>
-                     
-                    
                 {{-- @endif --}}
           @empty
                 <p>No hay nada</p>
-         @endforelse{{--endforelse publication--}}
-
+         @endforelse{{--endforelse publication--}}       
      @endauth
     </tbody>
 </table> 

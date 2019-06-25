@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="container ml-5">
  <table class="table table-responsive table-hover ">
     <thead>
         <tr>
@@ -26,9 +26,10 @@
                    <tr>
                     <td>{{ $publication->titulo }}</td>
                     <td>{{ $user->name }}</td>
-                    <td><img  class="card-img" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
+                    <td><div class="card card-img">
+                        <img  class=""  width='100%'src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="" ></td>
                 {{--forelse publication--}}
-
+                         </div>
                         <td class="">
                                 <p>{{ $publication->text }}</p> 
                             </td>      
@@ -37,7 +38,7 @@
                                 <form method="POST" action="{{ route('publications.allow',$publication->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button class="btn  btn-succes"type="submit">@lang('Athorize')</button>
+                                    <button class="btn  btn-success"type="submit">@lang('Athorize')</button>
                                 </form>
                             </td>
                             
@@ -45,7 +46,7 @@
                                 <form method="POST" action="{{ route('publications.destroy', $publication) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn  btn-danger"type="submit">@lang('Deny')</button>
+                                    <button class="btn  btn-primary"type="submit">@lang('Deny')</button>
                                 </form>
                             </td>
                             
