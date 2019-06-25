@@ -1,14 +1,14 @@
-@extends('layouts.app')
-
+@extends('layouts.login')
+{{-- @extends('layouts.app') --}}
 @section('content')
-<div class="container">
+  {{--<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form  method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -29,7 +29,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -69,5 +69,23 @@
             </div>
         </div>
     </div>
-</div>
+</div>  --}}
+
+
+<form class="box" action="{{ route('login') }}" method="post">
+ @csrf
+  <h1>Login</h1>
+  <input id="email"  type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" required autocomplete="email">
+  @error('email')
+    <span class="invalid-feedback" role="alert">
+    <strong>{{ $message }}</strong>
+    </span>
+  @enderror
+
+  <input id="password" type="password"  name="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" required autocomplete="current-password">
+  
+  <input type="submit"  name=""  value="Login" > 
+    
+</form> 
+
 @endsection
