@@ -1,5 +1,5 @@
-   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+   <nav class="nav--blue navbar navbar-expand-md shadow-sm  navbar-dark">
+            <div class="container ">
             <div class="col-3 py-0 my-0">
                 <a class="navbar-brand py-0 my-0" href="{{ url('/') }}">
                    <img src="{{ asset('img/Logo.png') }}" width="100%" class="" alt="...">
@@ -17,7 +17,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            <nav class="navbar navbar-light bg-light">
+                            <nav class="navbar nav--blue ">
                                     <form class="form-inline" method="GET" action="{{ route('publications.index') }}">
                                       <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -27,12 +27,12 @@
                         @guest
                       
 
-                            <li class="nav-item">
+                            <li class="nav-item navbar-dark">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>                         
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a  class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else    

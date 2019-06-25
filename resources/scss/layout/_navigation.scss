@@ -1,0 +1,11 @@
+.nav{
+    &--blue{//nav--blue
+        background:$primary;          
+            }   
+            
+            &a {
+
+                @include font-style( #e27a62ff,1rem,400);
+                
+            } 
+}
