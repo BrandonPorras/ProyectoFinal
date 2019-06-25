@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="container-fluid ">
 @auth
 {{-- si esta autenticado ejecuta lo que este aqui adentro --}}
     {{-- logeado
@@ -11,22 +10,63 @@
     
 {{-- para extraer el role del usuario --}}
      @foreach (Auth::user()->roles as $role)
+     
     @if($role->name=='admin')
-    
-    <a href="{{ route('publications.showAuthorize') }}" class="btn btn-success">Authorize or deny publications</a>
+    <div class="container my-2 justify-content-between">
+    <a href="{{ route('publications.showAuthorize') }}" class="btn btn-primary">Authorize or deny publications</a>
     <a href="{{ route('user.manageUser') }}" class="btn btn-success">Manage users</a>
-    
+   </div>
     @endif
+ 
     @endforeach 
 
 @endauth
 
 
-    
 
-        <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
-             <button name="search" value="Materials" class="btn btn-outline-success my-2 my-sm-0" type="submit">Materials</button>
-         </form>
+<div class="container-fluid " >
+       <div class="row">
+    <div class="col-3  mx-0 ">                
+            <img class= "card " width="100%" src="{{ asset('img/OG9KN00.jpg') }}" alt=""  >  
+            <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
+                <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
+                    <button name="search" value="Food" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Food</h1></button>
+                </form>
+            </div>
+    </div>
+    
+    <div class="col-3  mx-0 ">                
+            <img class= "card " width="100%" src="{{ asset('img/Catergoria2.png') }}" alt=""  >  
+            <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
+                <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
+                    <button name="search" value="Materials" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Materials</h1></button>
+                </form>
+            </div>
+    </div>
+        
+    <div class="col-3  mx-0 ">                
+            <img class= "card " width="100%" src="{{ asset('img/Categoria4.png') }}" alt=""  >  
+            <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
+                <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
+                    <button name="search" value="Academic Recomendations" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h3>Academic Recomendations</h3></button>
+                </form>
+            </div>
+    </div>
+        
+    <div class="col-3  mx-0 ">                
+            <img class= "card " width="100%" src="{{ asset('img/image1913.png') }}" alt=""  >  
+            <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
+                <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
+                    <button name="search" value="Others" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Others</h1></button>
+                </form>
+            </div>
+    </div>
+        
+          
+           
+       </div>
+
+     
                                  
         
         <br>
