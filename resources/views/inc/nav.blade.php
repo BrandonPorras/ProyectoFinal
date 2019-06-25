@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-   <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-            <div class="container">
-            <div class="col-3 py-0 my-0 navbar">
-=======
    <nav class="nav--blue navbar navbar-expand-md shadow-sm  navbar-dark">
             <div class="container ">
             <div class="col-3 py-0 my-0">
->>>>>>> master
                 <a class="navbar-brand py-0 my-0" href="{{ url('/') }}">
                    <img src="{{ asset('img/Logo.png') }}" width="100%" class="" alt="...">
                 </a>
