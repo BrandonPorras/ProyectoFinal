@@ -49,7 +49,7 @@
                                     </a>
 
 
-                                     <a class="nav-link dropdown" href="{{ route('user.show', Auth::user()) }}">{{ Auth::user()->name }}  </a>
+                                     <a class="" href="{{ route('user.show', Auth::user()) }}">{{ Auth::user()->name }}  </a>
                                     
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
