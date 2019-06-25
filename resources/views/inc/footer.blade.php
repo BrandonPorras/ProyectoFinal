@@ -1,20 +1,12 @@
 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark" style="background-color: #4F4F4F;">
-<div style="background-color: #EB3137;">
+<footer class="page-footer font-small unique-color-dark" style="background-color: #032a38ff;">
+<div style="background-color: #032a38ff;">
     <div class="container">
 
       <!-- Grid row-->
       <div class="row py-4 d-flex align-items-center">
 
-        <!-- Grid column -->
-        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0 text-white">
-          <h5 class="mb-0">Contacto e información de importancia</h5>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        
-        <!-- Grid column -->
+       
 
       </div>
       <!-- Grid row-->
@@ -23,7 +15,7 @@
   </div>
 
   <!-- Footer Links -->
-  <div class="container text-center text-md-left mt-5 text-white" style="background-color:#4F4F4F;">
+  <div class="container text-center text-md-left mt-5 text-white" style="background-color:#032a38ff;">
 
     <!-- Grid row -->
     <div class="row mt-3" >
@@ -77,7 +69,7 @@
         <p>
           <i class="fas fa-envelope mr-3"></i> Correo Electrónico</p>
         <p>
-          <i class="far fa-address-card"></i></i> brandom.porras@ucr.ac.cr</p>
+          <i class="far fa-address-card"></i></i> brandon.porras@ucr.ac.cr</p>
         <p>
           <i class="far fa-address-card"></i></i> antonny.alvarado@ucr.ac.cr</p>
         <p>

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container">
+ {{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +73,36 @@
             </div>
         </div>
     </div>
-</div>
+</div>  --}}
+
+
+ <form class="box" action="{{ route('register') }}" method="post">
+ @csrf
+  <h1>Register</h1>
+
+  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="UserName" name="name" required autocomplete="name">
+    @error('name')
+     <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+     </span>
+    @enderror
+
+  <input id="email" type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" required autocomplete="email">
+  @error('email')
+    <span class="invalid-feedback" role="alert">
+    <strong>{{ $message }}</strong>
+    </span>
+  @enderror
+
+  <input id="password" type="password"  name="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" required autocomplete="current-password">
+    @error('password')
+     <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+     </span>
+    @enderror
+  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Password Confirm" required autocomplete="new-password">
+
+  <input type="submit"  name=""  value="Register" > 
+
+</form> 
 @endsection
