@@ -2,7 +2,7 @@
             <div class="container">
                 <div class="col-3 py-0 my-0">
                 <a class="navbar-brand py-0 my-0" href="{{ url('/') }}">
-                   <img src="{{ asset('img/logo-peq.png') }}" width="80%" class="" alt="...">
+                   <img src="{{ asset('img/logo-peq.png') }}" width="50%" class="" alt="...">
                 </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
