@@ -5,3 +5,11 @@
     background-position: center;
 }
 
+.background-login{
+
+    background-image: url('../img/min2.png');
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+

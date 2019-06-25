@@ -10563,7 +10563,7 @@ a.text-dark:hover, a.text-dark:focus {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.6);
   text-align: center;
   border-radius: 5px;
 }

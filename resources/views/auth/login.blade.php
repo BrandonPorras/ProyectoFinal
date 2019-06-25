@@ -72,7 +72,9 @@
 </div>  --}}
 
 
-<form class="box" action="{{ route('login') }}" method="post">
+<body class="background-login">
+
+<form class="box " action="{{ route('login') }}" method="post">
  @csrf
   <h1>Login</h1>
   <input id="email"  type="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" required autocomplete="email">
@@ -88,4 +90,5 @@
     
 </form> 
 
+</body>
 @endsection

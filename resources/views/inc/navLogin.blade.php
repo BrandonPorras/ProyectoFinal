@@ -1,8 +1,10 @@
  <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                   Integrate Pene
+                <div class="col-3 py-0 my-0">
+                <a class="navbar-brand py-0 my-0" href="{{ url('/') }}">
+                   <img src="{{ asset('img/logo-peq.png') }}" width="80%" class="" alt="...">
                 </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

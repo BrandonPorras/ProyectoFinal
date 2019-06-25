@@ -75,6 +75,7 @@
     </div>
 </div>  --}}
 
+<body class="background-login">
 
  <form class="box" action="{{ route('register') }}" method="post">
  @csrf
@@ -105,4 +106,5 @@
   <input type="submit"  name=""  value="Register" > 
 
 </form> 
+</body>
 @endsection
