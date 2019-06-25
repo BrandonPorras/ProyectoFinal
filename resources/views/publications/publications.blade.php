@@ -25,8 +25,8 @@
 
 
 <div class="container-fluid " >
-       <div class="row">
-    <div class="col-3  mx-0 ">                
+       <div class="row ">
+    <div class="categorias col-3  mx-0 ">                
             <img class= "card " width="100%" src="{{ asset('img/OG9KN00.jpg') }}" alt=""  >  
             <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
@@ -34,16 +34,18 @@
                 </form>
             </div>
     </div>
-    
-    <div class="col-3  mx-0 ">                
-            <img class= "card " width="100%" src="{{ asset('img/Catergoria2.png') }}" alt=""  >  
-            <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
+     
+      <div class="col-3  mx-0 "> 
+                  
+            <img class= "card" width="100%" src="{{ asset('img/Catergoria2.png') }}" alt=""  >  
+            
+            <div class="card-img-overlay   d-flex justify-content-center align-content-center">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
                     <button name="search" value="Materials" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Materials</h1></button>
                 </form>
             </div>
-    </div>
-        
+      </div>
+    
     <div class="col-3  mx-0 ">                
             <img class= "card " width="100%" src="{{ asset('img/Categoria4.png') }}" alt=""  >  
             <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             

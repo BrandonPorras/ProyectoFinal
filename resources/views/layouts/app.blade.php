@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,6 +26,8 @@
 
      <!-- Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    
+    
 
     
                       
@@ -37,7 +40,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
         @include('inc.footer')
     </div>
+    <script src="{{ asset('js/animated.js') }}" defer></script>
 </body>
+
 </html>
