@@ -60,18 +60,16 @@
                     <button name="search" value="Others" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Others</h1></button>
                 </form>
             </div>
-    </div>
-        
-          
+    </div>      
+      
            
        </div>
 
      
                                  
         
-        <br>
-        <br>
-        <div class="container row  flex justify-content-end">
+        
+        <div class="container row  flex justify-content-end mx-0 px-0">
         @forelse($publications as $publication)
              
         @if($publication->state==1)   
@@ -83,8 +81,8 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body justify-content-center">
-                    <h5 class="card-title text-center text-black">{{ $publication->titulo }}</h5>            
-                   <a href="{{ route('publications.show', $publication) }}" class="btn btn-dark ">View publication</a> 
+                    <h5 class="card-title text-center text-secondary">{{ $publication->titulo }}</h5>            
+                   <a href="{{ route('publications.show', $publication) }}" class="btn btn-outline-success ">View publication</a> 
                  </div>
               </div>
             </div>
