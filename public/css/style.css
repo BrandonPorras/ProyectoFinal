@@ -1,0 +1,10 @@
+.background-home{
+    background-image: url('../img/21252.jpg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+}
+
+.transp{
+    rgba:(0,0,0,0.5) !important;
+}
