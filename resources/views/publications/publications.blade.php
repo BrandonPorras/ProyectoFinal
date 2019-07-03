@@ -30,7 +30,7 @@
             <img class= "card " width="100%" src="{{ asset('img/OG9KN00.jpg') }}" alt=""  >  
             <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
-                    <button name="search" value="Food" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Food</h1></button>
+                    <button name="search" value="Food" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>@lang('content.Food')</h1></button>
                 </form>
             </div>
     </div>
@@ -41,7 +41,7 @@
             
             <div class="card-img-overlay   d-flex justify-content-center align-content-center">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
-                    <button name="search" value="Materials" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Materials</h1></button>
+                    <button name="search" value="Materials" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>@lang('content.Materials')</h1></button>
                 </form>
             </div>
       </div>
@@ -50,7 +50,7 @@
             <img class= "card " width="100%" src="{{ asset('img/Categoria4.png') }}" alt=""  >  
             <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
-                    <button name="search" value="Academic Recomendations" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h3>Academic Recomendations</h3></button>
+                    <button name="search" value="Academic Recomendations" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h3>@lang('content.Academic Recomendations')</h3></button>
                 </form>
             </div>
     </div>
@@ -59,7 +59,7 @@
             <img class= "card " width="100%" src="{{ asset('img/image1913.png') }}" alt=""  >  
             <div class="card-img-overlay  d-flex justify-content-center align-content-center ">             
                 <form class="form-inline " method="GET" action="{{ route('publications.index') }}">
-                    <button name="search" value="Others" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>Others</h1></button>
+                    <button name="search" value="Others" class="text-light  btn btn-outline-dark my-2 my-sm-0 border-0" type="submit"><h1>@lang('content.Others')</h1></button>
                 </form>
             </div>
     </div>      
@@ -84,7 +84,7 @@
               <div class="col-md-8">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title text-center text-secondary">{{ $publication->titulo }}</h5>            
-                   <a href="{{ route('publications.show', $publication) }}" class="btn btn-outline-success ">View publication</a> 
+                   <a href="{{ route('publications.show', $publication) }}" class="btn btn-outline-success ">@lang('content.View publication')</a> 
                  </div>
               </div>
             </div>
