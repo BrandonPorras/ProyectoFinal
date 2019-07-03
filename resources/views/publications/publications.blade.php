@@ -102,7 +102,8 @@
             <p>No aceptada</p>
            
         @endforelse
-    </div>
+
+    </div class="container">
 {{--    metodo de la paginacion --}}
         {!!$publications->appends(
         Request::only(['search',])
