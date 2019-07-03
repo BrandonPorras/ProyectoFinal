@@ -79,7 +79,7 @@
         <div class="card  py-1 my-3 ml-3 col-5 bg-warning border-warning" >
             <div class="row no-gutters">
               <div class="col-md-4  d-flex justify-content-center">
-                <img  class="card-img rounded-circle" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="">
+                <img  class="card-img rounded" src="{{ url('storage/imgPublications/' . $publication->img) }}" alt="">
               </div>
               <div class="col-md-8">
                 <div class="card-body justify-content-center">
