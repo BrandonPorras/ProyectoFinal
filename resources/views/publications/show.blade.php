@@ -6,7 +6,7 @@
 
 <article>
 
-<div class="d-flex justify-content-center align-content-center mx-auto">
+<div class=" container d-flex justify-content-center align-content-center mx-auto">
 <!-- Section: Blog v.1 -->
 <section class="my-5">
    <!-- Grid row -->
@@ -30,9 +30,10 @@
     <div class="col-lg-7 py-0 my-0">
 
       <!-- Category -->
-      <a href="#!" class="green-text">
-        <h6 class="font-weight-bold mb-3">{{ $publication->categoria }}</h6>
-      </a>
+      <form class="form-inline my-1 " method="GET" action="{{ route('publications.index') }}">
+        <button name="search" value="{{ $publication->categoria }}" class="btn btn-success my-2 my-sm-0 border-0" type="submit">{{ $publication->categoria }}</button>
+    </form>
+      
       <!-- Post title -->
       <h3 class="font-weight-bold mb-3"><strong>{{ $publication->titulo }}</strong></h3>
       <!-- Excerpt -->

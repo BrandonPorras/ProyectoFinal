@@ -24,12 +24,9 @@
       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Acerca de nosotros</h6>
+        <h6 class="text-uppercase font-weight-bold">@lang('content.Acerca de nosotros')</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto white-text" style="width: 60px;">
-        <p>Somos un grupo de estudiantes de la carrera de ITM de la Universidad de Costa Rica, 
-        que como parte de un proyecto para el curso de Interactivas II decidimos crear un sitio 
-        donde la comunidad de ITM pueda compartir información relevante acerca de diferentes temas,
-        para que sirva de guia a cualquier otro estudiante o interesado en la carrera.</p>
+        <p>@lang('content.Somos un grupo de estudiantes de la carrera de ITM de la Universidad de Costa Rica, que como parte de un proyecto para el curso de Interactivas II decidimos crear un sitio donde la comunidad de ITM pueda compartir información relevante acerca de diferentes temas, para que sirva de guia a cualquier otro estudiante o interesado en la carrera.')</p>
 
       </div>
       <!-- Grid column -->
@@ -60,7 +57,7 @@
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contactar</h6>
+        <h6 class="text-uppercase font-weight-bold">@lang('content.Contactar')</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
           <i class="fas fa-home mr-3"></i> Puntarenas, Esparza</p>
