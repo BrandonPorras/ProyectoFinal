@@ -1,0 +1,5 @@
+Agregar las dependencias con npm
+generar la llave php artisan key:generate
+generar el storage
+correr los seeders y migracionesconfigurar archivo .env
+crear la base de datos que esta en el archivo itm.sql
